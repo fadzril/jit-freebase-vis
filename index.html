@@ -27,7 +27,7 @@
 
   <!-- CSS : implied media="all" -->
   <link rel="stylesheet" href="stylesheets/application.css?v=2">
-
+  <link rel="stylesheet" href="stylesheets/visualization/RGraph.css">
   <!-- Uncomment if you are specifically targeting less enabled mobile browsers
   <link rel="stylesheet" media="handheld" href="css/handheld.css?v=2">  -->
  
@@ -38,38 +38,42 @@
 
 <body>
 
-  <div id="container">
     <header>
 
     </header>
     
     <div id="main">
-      <div id="search">
-        <form id="search.form" method="post" action="">
-          <label>Search Artist</label>
-          <input type="text" placeholder="Enter artist name or group.." maxlength="30" size="50" id="keyword" />
-          <input type="submit" value="Search Artist" id="submit"/>
-        </form>
+      <div id="search-container">
+        <div id="search">
+          <form id="search.form" method="post" action="">
+            <input type="text" placeholder="Enter artist name or group.." maxlength="30" size="50" id="keyword" />
+            <input type="submit" value="Search Artist" id="submit"/>
+          </form>
+        </div>
       </div>
       <div id="artist">
         <div id="title"></div>
         <div id="albumlist"></div>
         <div id="tracklist"></div>
       </div>
+      <div id="center-container">
+          <div id="infovis"></div>    
+      </div>
     </div>
     
     <footer>
 
     </footer>
-  </div> <!--! end of #container -->
 
 
   <!-- Javascript at the bottom for fast page loading -->
 
   <!-- Grab Google CDN's jQuery. fall back to local if necessary -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>  
-  
+  <!-- CDN js for JSON2 -->
+  <script src="http://ajax.cdnjs.com/ajax/libs/json2/20110223/json2.js"></script>
   <!-- scripts concatenated and minified via ant build script-->
+  <script src="javascripts/jit-yc.js"></script>
   <script src="javascripts/metaweb.js"></script>
   <script src="javascripts/plugins.js"></script>
   <script src="javascripts/application.js"></script>
