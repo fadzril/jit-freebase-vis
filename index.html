@@ -44,7 +44,18 @@
     </header>
     
     <div id="main">
-
+      <div id="search">
+        <form id="search.form" method="post" action="">
+          <label>Search Artist</label>
+          <input type="text" placeholder="Enter artist name or group.." maxlength="30" size="50" id="keyword" />
+          <input type="submit" value="Search Artist" id="submit"/>
+        </form>
+      </div>
+      <div id="artist">
+        <div id="title"></div>
+        <div id="albumlist"></div>
+        <div id="tracklist"></div>
+      </div>
     </div>
     
     <footer>
