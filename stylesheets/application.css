@@ -81,7 +81,8 @@ a {
 }
 
 #center-container {
-  width:600px;
+  min-width: 100%;
+  min-height: 100%;
   background-color:#1a1a1a;
   color:#ccc;
 }
@@ -113,7 +114,7 @@ a {
   overflow:hidden;
 }
 
-#search-container {
+#settings{
   background: #DDD;
   padding: 5px 0;
   width: 100%;
@@ -123,14 +124,27 @@ a {
   z-index: 2;
 }
 
-#search {
+#search, #vis, #notification {
   position: relative;
   z-index: 2;
-  float: right;
+  float: left;
+  padding: 0 10px;
+  border-left: 1px solid #f2f2f2;
+  border-right: 1px solid #CCC;
+}
+
+#notification {
+  background: #FF0;
+  padding: 4px 10px;
+}
+
+#search-form {
+  display: inline;
+  float: none;
 }
 
 #search input[type="text"] {
-  font: bold 11px/18px DroidSans, Helvetica;
+  font-family: DroidSans, Helvetica;
   -webkit-box-shadow: 0 0 3px #AAA;
   box-shadow: 0 0 5px #AAA;
   border-radius: 4px;
@@ -167,4 +181,9 @@ a {
   filter:alpha(opacity=90);
   font-size:10px;
   padding:7px;
+}
+
+/*FREEBASE SUGGEST*/
+.fbs-item-type, .fbs-item-name label, ul.fbs-list {
+  text-align: left;
 }
