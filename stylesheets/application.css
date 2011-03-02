@@ -115,9 +115,8 @@ a {
 
 #infolist {
   z-index: 10;
-  background: white;
   position: absolute;
-  top: 5%;
+  top: 1%;
   overflow: hidden;
   overflow-y: auto;
   display: none;
@@ -131,12 +130,13 @@ a {
 }
 
 #infolist ul li {
-  border-bottom: 1px dashed #CCC;
+  border-bottom: 1px dashed #666;
   padding: 2px 0;
   text-align: left;
   clear: both;
   float: left;
   width: 100%;
+  color: #DDD;
 }
 
 #infolist li li {
@@ -150,7 +150,7 @@ a {
   float: left;
   padding: 3px 5px;
   text-transform: uppercase;
-  color: #333;
+  color: #666;
 }
 
 #infolist li .year {
@@ -220,6 +220,33 @@ a {
   border: 1px solid #DDD;
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
+}
+
+#typographic {
+  position: absolute;
+  top: 3%;
+  left: 0;
+  padding: 10px;
+  z-index: 5;
+  text-align: left;
+}
+
+#typographic h2 {
+  margin: 0;
+  font-size: 5.8em;
+  font-weight: bold;
+  font-family: "Helvetica-Neue", Helvetica, sans-serif;
+}
+
+.collections {
+  margin-top: -10px;
+}
+
+.collections span.bigger {
+  font-weight: bold;
+  font-size: 2em;
+  line-height: 1.2em;
+  font-family: "Helvetica-Neue", Helvetica, sans-serif;
 }
 
 /*TOOLTIPS*/

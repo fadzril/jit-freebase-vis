@@ -300,6 +300,7 @@ function sendQuery(band) {
             // And release dates
             sort: "release_date",
             // Order by release date
+            "release_type!=":"single",
             releases: [{
                 "limit": 10,
                 "track": [{
@@ -381,16 +382,23 @@ function sendQuery(band) {
             that.slideDown('fast');
           }).css('cursor', 'pointer');
         });
+
+        var albumLength = (parseInt(result.length, 10) < 2) ? result.length+' album' : result.length+' albums';
         
-        var listHeight = $(window).height() - 100;
-        $('#infolist').css({
-            'width': 400,
-            'height': listHeight,
-            'top': ($(window).height() - listHeight) / 2,
-            'right': ( - $('#infolist').width()) + 'px'
-        }).show().stop().animate({
-            right: 0
-        }, 500);
+        $('#typographic .artist').html('<span>Artist Name :</span><h2>' + band + '</h2>');
+        $('#typographic .collections').html('<span>Album Release : </span><span class="bigger">' + albumLength +'</span>');
+        
+        setTimeout(function() {
+          var listHeight = $(window).height() - $('#typographic').height() - 100;
+          $('#infolist').css({
+              'width': 360,
+              'height': listHeight,
+              'top': $('#typographic').height() + 50,
+              'left': ( - $(window).width()) + 'px'
+          }).show().stop().animate({
+              left: 10
+          }, 500);
+        }, 1000);
 
     }
 
