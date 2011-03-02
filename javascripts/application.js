@@ -366,18 +366,22 @@ function sendQuery(band) {
             var albumID = item.id;
             var albumRelease = getYearList(item.release_date);
             albumList_li = $('<li/>');
-            albumList_li.append('<span class="year">(' + albumRelease + ')</span><span class="title">' + albumName + '</span>');
+            albumList_li.append('<span class="year">(' + albumRelease + ')</span><span class="title" data-id="'+albumID+'" data-name="'+albumName+'">' + albumName + '</span>');
             albumList_li.appendTo($('#albumlist ul'));
-
-            $('#albumlist ul').children('li').each(function() {
-                $(this).bind('click', function(e) {
-                    e.preventDefault();
-                    $('#tracklist').html('');
-                    getDetails(albumName, albumID);
-                }).css('cursor', 'pointer');
-            });
-
-            });
+        });
+        
+        albumList.find('li').each(function(i) {
+          var that = $(this);
+          var span = that.find('.title');
+          that.bind('click', function(e) {
+            e.preventDefault();
+            $('#tracklist').html('');
+            that.parents('ul').find('li').children('ol').slideUp('fast');
+            getDetails(that, span.attr('data-name'), span.attr('data-id'));
+            that.slideDown('fast');
+          }).css('cursor', 'pointer');
+        });
+        
         var listHeight = $(window).height() - 100;
         $('#infolist').css({
             'width': 400,
@@ -403,7 +407,8 @@ function sendQuery(band) {
 }
 
 /* Display the tracks on the specified album by the specified band */
-function getDetails(albumname, albumid) {
+function getDetails(element, albumname, albumid) {
+    
     // This is the MQL query we will issue
     var query = {
         type: "/music/album",
@@ -421,7 +426,8 @@ function getDetails(albumname, albumid) {
 
     // Issue the query, invoke the nested function when the response arrives
     Metaweb.read(query, function(result) {
-
+        if ($(element).children('ul').length) 
+            $(element).children('ul').remove();
         if (result) {
             // If result is defined
             var tracks = result.releases;
@@ -436,11 +442,11 @@ function getDetails(albumname, albumid) {
                 }
             }
             // Display the track list by setting innerHTML
-            $('#tracklist').html("<h2>" + albumname + "</h2>" + "<ol><li>" + listitems.join("<li>") + "</ol>");
+            $(element).append("<ol><li>" + listitems.join("<li>") + "</ol>");
 
         } else {
             // If empty result display error message
-            tracklist.innerHTML = "<h2>" + albumname + "</h2>" + "<p>No track list is available.";
+            $(element).append("<h2>" + albumname + "</h2>" + "<p>No track list is available.");
         }
     });
 

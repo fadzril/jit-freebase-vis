@@ -139,6 +139,13 @@ a {
   width: 100%;
 }
 
+#infolist li li {
+  border: none;
+  padding: 2px 0 2px 5px;
+  list-style: disc;
+  color: #999;
+}
+
 #infolist li .title {
   float: left;
   padding: 3px 5px;
