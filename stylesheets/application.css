@@ -105,13 +105,54 @@ a {
   color:#23A4FF;
 }
 
-
 #infovis {
   position:relative;
   width: 100%;
   height: 100%;
   margin:auto;
   overflow:hidden;
+}
+
+#infolist {
+  z-index: 10;
+  background: white;
+  position: absolute;
+  top: 5%;
+  overflow: hidden;
+  overflow-y: auto;
+  display: none;
+}
+
+#infolist ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 12px;
+}
+
+#infolist ul li {
+  border-bottom: 1px dashed #CCC;
+  padding: 2px 0;
+  text-align: left;
+  clear: both;
+  float: left;
+  width: 100%;
+}
+
+#infolist li .title {
+  float: left;
+  padding: 3px 5px;
+  text-transform: uppercase;
+  color: #333;
+}
+
+#infolist li .year {
+  float: left;
+  font-weight: bold;
+  padding: 3px 5px;
+  margin: 0 5px;
+  color: #FFF;
+  background: #F00;
 }
 
 #settings{
@@ -122,6 +163,13 @@ a {
   float: left;
   position: relative;
   z-index: 2;
+}
+
+#settings span {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-shadow: 0 1px #FFF;
 }
 
 #search, #vis, #notification {
