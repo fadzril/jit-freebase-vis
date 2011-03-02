@@ -322,9 +322,11 @@ function sendQuery(band) {
         if (typeof $jit === 'function') {
             // If no result, the band was unknown.
             if (!result || !result.album) {
+              if(band == null) {
                 fm.notification.container.html("<b><i>Unknown band: " + band + "</i></b>");
                 fm.notification.container.appendTo($('#settings'));
-                return;
+              }
+              return;
             }
             // Otherwise, the result object matches our query object, 
             // but has album data filled in.  
@@ -386,7 +388,7 @@ function sendQuery(band) {
         var albumLength = (parseInt(result.length, 10) < 2) ? result.length+' album' : result.length+' albums';
         
         $('#typographic .artist').html('<span>Artist Name :</span><h2>' + band + '</h2>');
-        $('#typographic .collections').html('<span>Album Release : </span><span class="bigger">' + albumLength +'</span>');
+        $('#typographic .collections').html('<span>Release : </span><span class="bigger">' + albumLength +'</span>');
         
         setTimeout(function() {
           var listHeight = $(window).height() - $('#typographic').height() - 100;
@@ -488,7 +490,7 @@ function getDetails(element, albumname, albumid) {
         if (e.keyCode === 13) {
             if (keyword != null) {
                 graph.html('');
-                sendQuery(keyword);
+                sendQuery($(this).val());
             }
         }
     });

@@ -224,7 +224,7 @@ a {
 
 #typographic {
   position: absolute;
-  top: 3%;
+  top: 4%;
   left: 0;
   padding: 10px;
   z-index: 5;
@@ -239,7 +239,9 @@ a {
 }
 
 .collections {
-  margin-top: -10px;
+  margin-top: -12px;
+  display: table-cell;
+  float: right;
 }
 
 .collections span.bigger {
@@ -247,6 +249,7 @@ a {
   font-size: 2em;
   line-height: 1.2em;
   font-family: "Helvetica-Neue", Helvetica, sans-serif;
+  vertical-align: middle;
 }
 
 /*TOOLTIPS*/
@@ -268,4 +271,7 @@ a {
 /*FREEBASE SUGGEST*/
 .fbs-item-type, .fbs-item-name label, ul.fbs-list {
   text-align: left;
+}
+.fbs-pane {
+  z-index: 12;
 }
